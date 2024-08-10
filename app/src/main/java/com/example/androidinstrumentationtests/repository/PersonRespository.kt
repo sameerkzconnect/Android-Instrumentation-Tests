@@ -20,20 +20,20 @@ class PersonRespository (){
         val gson = Gson()
         personList = gson.fromJson(json, Array<PersonDTO>::class.java)
     }
-    fun populateQuotes(quotes: Array<PersonDTO>){
+    fun populatePerson(quotes: Array<PersonDTO>){
         personList = quotes
     }
 
-    fun getCurrentQuote(): PersonDTO {
+    fun getCurrentPerson(): PersonDTO {
         return personList[currentPersionIndex]
     }
 
-    fun getNextQuote(): PersonDTO {
+    fun getNextPerson(): PersonDTO {
         if (currentPersionIndex == personList.size - 1) return personList[currentPersionIndex]
         return personList[++currentPersionIndex]
     }
 
-    fun getPreviousQuote(): PersonDTO {
+    fun getPreviousPerson(): PersonDTO {
         if (currentPersionIndex == 0) return personList[currentPersionIndex]
         return personList[--currentPersionIndex]
     }
